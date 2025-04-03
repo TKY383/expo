@@ -19,9 +19,10 @@ const DEF_OPTIONS = {
   caller: getCaller({ name: 'metro', engine: 'hermes', platform: 'ios' }),
 };
 
-it(`transforms import.meta.url to globalThis.__ExpoImportMetaRegistry.url`, () => {
+it(`transforms import.meta.url to globalThis.__ExpoImportMetaRegistry.url when enableImportMetaTransform is true`, () => {
   const options = {
     ...DEF_OPTIONS,
+    presets: [[preset, { enableImportMetaTransform: true }]],
     caller: getCaller({ name: 'metro', engine: 'hermes', platform: 'ios', isDev: true }),
   };
 
@@ -31,10 +32,9 @@ it(`transforms import.meta.url to globalThis.__ExpoImportMetaRegistry.url`, () =
   );
 });
 
-it(`should not transform when enableImportMetaTransform is false`, () => {
+it(`should not transform import.meta by default`, () => {
   const options = {
     ...DEF_OPTIONS,
-    presets: [[preset, { enableImportMetaTransform: false }]],
     caller: getCaller({ name: 'metro', engine: 'hermes', platform: 'ios', isDev: true }),
   };
 

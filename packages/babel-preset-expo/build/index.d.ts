@@ -69,7 +69,7 @@ type BabelPresetExpoPlatformOptions = {
     minifyTypeofWindow?: boolean;
     /**
      * Enable `import.meta` -> `globalThis.__ExpoImportMetaRegistry` transform.
-     * @default `true`
+     * @default `false`
      */
     enableImportMetaTransform?: boolean;
 };

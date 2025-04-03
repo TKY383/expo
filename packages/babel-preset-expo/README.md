@@ -150,7 +150,7 @@ Changes the engine preset in `@react-native/babel-preset` based on the JavaScrip
 
 ### `enableImportMetaTransform`
 
-Enable `import.meta` -> `globalThis.ExpoImportMetaRegistry` transform, defaults to `true`.
+Enable `import.meta` -> `globalThis.ExpoImportMetaRegistry` transform, defaults to `false`.
 
 ### `enableBabelRuntime`
 

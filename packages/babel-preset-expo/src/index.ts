@@ -102,7 +102,7 @@ type BabelPresetExpoPlatformOptions = {
 
   /**
    * Enable `import.meta` -> `globalThis.__ExpoImportMetaRegistry` transform.
-   * @default `true`
+   * @default `false`
    */
   enableImportMetaTransform?: boolean;
 };
@@ -325,7 +325,7 @@ function babelPresetExpo(api: ConfigAPI, options: BabelPresetExpoOptions = {}): 
   if (platformOptions.disableImportExportTransform) {
     extraPlugins.push([require('./detect-dynamic-exports').detectDynamicExports]);
   }
-  if (platformOptions.enableImportMetaTransform !== false) {
+  if (platformOptions.enableImportMetaTransform === true) {
     extraPlugins.push(require('./import-meta-transform-plugin').expoImportMetaTransformPlugin);
   }
 
